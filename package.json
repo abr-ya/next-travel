@@ -1,0 +1,43 @@
+{
+  "name": "next-travel",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint './{components,layout,pages}/**/*.{js,ts,tsx}' --quiet",
+    "lint:fix": "eslint './{components,layout,pages}/**/*.{js,ts,tsx}' --fix",
+    "style": "stylelint \"**/*.css\"",
+    "style:fix": "stylelint \"**/*.css\" --fix"
+  },
+  "dependencies": {
+    "axios": "^1.2.2",
+    "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
+    "framer-motion": "5.6.0",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.5.1",
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.33",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "cross-env": "^7.0.3",
+    "eslint": "8.11.0",
+    "eslint-config-next": "12.1.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.3",
+    "stylelint": "^14.16.1",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-order": "^6.0.1",
+    "stylelint-order-config-standard": "^0.1.3",
+    "typescript": "^4.4.4"
+  }
+}
