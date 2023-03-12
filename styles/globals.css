@@ -2,16 +2,13 @@ html,
 body {
   margin: 0;
   padding: 0;
-
   color: var(--black);
   background: #F5F6F8;
-
   font-family: "Noto Sans KR", sans-serif;
 }
 
 a {
   text-decoration: none;
-
   color: inherit;
 }
 
@@ -72,7 +69,6 @@ nav.nav-container .nav-item-container {
   width: 400px;
   margin: 20px;
   padding: 10px;
-
   border-radius: 10px;
   background-color: rgb(255 255 255);
   box-shadow: rgb(0 0 0 / 5%) 0 6px 24px 0, rgb(0 0 0 / 8%) 0 0 0 1px;
@@ -89,10 +85,8 @@ nav.nav-container .nav-item-container {
   display: flex;
   align-items: center;
   justify-content: center;
-
   margin: 10px 0 10px 10px;
   padding: 5px 10px;
-
   color: rgb(255 255 255);
   border-radius: 5px;
 }
@@ -115,7 +109,6 @@ nav.nav-container .nav-item-container {
 .avatar {
   width: 50px;
   height: 50px;
-
   border-radius: 25px;
 }
 
@@ -124,7 +117,6 @@ nav.nav-container .nav-item-container {
   width: 100%;
   margin: 20px;
   padding: 20px;
-
   border-radius: 10px;
   background-color: rgb(255 255 255);
   box-shadow: rgb(0 0 0 / 5%) 0 6px 24px 0, rgb(0 0 0 / 8%) 0 0 0 1px;

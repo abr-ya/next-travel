@@ -1,7 +1,6 @@
 {
 	"extends": [
-		"stylelint-config-standard",
-		"stylelint-order-config-standard"
+		"stylelint-config-standard"
 	],
 	"plugins": [
 		"stylelint-order"
@@ -17,6 +16,14 @@
 					"/grid/"
 				]
 			}
+		],
+		"order/order": [
+			"custom-properties",
+			"declarations"
+		],
+		"order/properties-order": [
+			"width",
+			"height"
 		]
 	}
 }
