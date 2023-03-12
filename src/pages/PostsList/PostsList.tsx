@@ -1,3 +1,4 @@
+import { Card } from "@/components/index";
 import { Htag } from "@/components/index";
 import { IPost } from "@/interfaces/index";
 import Link from "next/link";
@@ -16,7 +17,7 @@ const PostsList = ({ posts }: IPostsList) => {
       <div className="posts-container">
         {posts?.map((post) => (
           <Link key={post._id} href="/posts/[slug]" as={`/posts/${post.slug.current}`} passHref>
-            <p>{post.title}</p>
+            <Card post={post} />
           </Link>
         ))}
       </div>

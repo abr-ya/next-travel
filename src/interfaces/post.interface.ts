@@ -2,7 +2,7 @@ export interface IPost {
   _id: string;
   authorImage: AuthorImage;
   body: Body[];
-  categories: Category[];
+  categories: ICategory[];
   mainImage: MainImage;
   publishedAt: Date;
   slug: Slug;
@@ -37,8 +37,8 @@ interface Body {
   style: string;
 }
 
-interface Category {
-  id?: any;
+export interface ICategory {
+  id: string;
   title: string;
 }
 
