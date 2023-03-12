@@ -1,29 +1,16 @@
 import React from "react";
-import { getClient } from "../lib/sanity.server";
+import { getClient } from "../config/sanity-server";
 import groq from "groq";
-// import Head from "next/head";
-// import Link from "next/link";
-// import Card from "../components/Card";
-import { Htag } from "@/components/index";
 import { withLayout } from "@/layout/Layout";
+import { GetStaticProps } from "next";
+import { PostsList } from "@/pages/index";
+import { IPost } from "@/interfaces/index";
 
-interface IHome {
-  posts: any;
+interface HomeProps extends Record<string, unknown> {
+  posts: IPost[];
 }
 
-const Home = ({ posts }: IHome): JSX.Element => {
-  console.log("posts", posts);
-
-  return (
-    <>
-      <Htag tag="h1">Travel Blog Home Page)</Htag>
-    </>
-  );
-};
-
-export const getStaticProps = async ({ preview = false }) => {
-  console.log(getClient);
-
+export const getStaticProps: GetStaticProps<HomeProps> = async ({ preview = false }) => {
   const posts = await getClient(preview).fetch(groq`
     *[_type == "post" && publishedAt < now()] | order(publishedAt desc) {
      _id,
@@ -34,13 +21,17 @@ export const getStaticProps = async ({ preview = false }) => {
      body,
      mainImage,
      slug,
-     publishedAt
+     publishedAt,
+     visited,
      }`);
+
   return {
     props: {
       posts,
     },
   };
 };
+
+const Home = ({ posts }: HomeProps): JSX.Element => <PostsList posts={posts} />;
 
 export default withLayout(Home);

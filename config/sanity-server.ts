@@ -11,4 +11,4 @@ export const previewClient = createClient({
   //   token: process.env.NEXT_PUBLIC_SANITY,
 });
 
-export const getClient = (usePreview) => (usePreview ? previewClient : sanityClient);
+export const getClient = (usePreview: any) => (usePreview ? previewClient : sanityClient);
