@@ -11,6 +11,10 @@ export interface IPost {
   visited: string;
 }
 
+export interface IPostDetail extends IPost {
+  about: string;
+}
+
 // add
 interface Asset {
   _ref: string;
