@@ -1,7 +1,6 @@
 import { urlFor } from "../../../config/sanity";
 import { ForwardedRef, forwardRef } from "react";
-import { Tag } from "..";
-import { ICategory } from "@/interfaces/index";
+import { Htag, P, TagsBlock } from "@/components/index";
 import { CardProps } from "./Card.props";
 import styles from "./Card.module.css";
 
@@ -13,23 +12,19 @@ export const Card = forwardRef(({ post, ...props }: CardProps, ref: ForwardedRef
 
   return (
     <div className={styles.card} {...props} ref={ref}>
-      <h2>{title}</h2>
-      <p>Published on: {new Date(publishedAt).toDateString()}</p>
+      <Htag tag={"h2"}>{title}</Htag>
+      <P size="s">Published on: {new Date(publishedAt).toDateString()}</P>
 
       <img className="main-image" alt={title + " image"} src={mainPicUrl} />
 
       <hr />
 
       <div className={styles.info}>
-        <p>Posted by: {username}</p>
+        <P size="s">Posted by: {username}</P>
         <img className="avatar" alt={username + " avatar"} src={avaUrl} />
       </div>
 
-      <div className={styles.tags}>
-        {categories.map((category: ICategory) => (
-          <Tag className={styles.tag}>{category.title}</Tag>
-        ))}
-      </div>
+      <TagsBlock tags={categories} />
     </div>
   );
 });
