@@ -13,6 +13,13 @@ export interface IPost {
 
 export interface IPostDetail extends IPost {
   about: string;
+  location: ICoord;
+}
+
+export interface ICoord {
+  lat: number;
+  lng: number;
+  _type: string;
 }
 
 // add

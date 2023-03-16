@@ -1,5 +1,5 @@
 import React from "react";
-import { Htag, TagsBlock } from "@/components/index";
+import { Htag, MapBox, TagsBlock } from "@/components/index";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "../../../config/sanity";
 import { IPostDetail } from "@/interfaces/index";
@@ -17,7 +17,9 @@ const PostComponents = {
   },
 };
 
-const PostDetailPage = ({ post: { title, categories, body, authorImage, username, about } }: IPostDetailPage) => {
+const PostDetailPage = ({
+  post: { title, categories, body, authorImage, username, about, location },
+}: IPostDetailPage) => {
   if (!title) return null;
 
   return (
@@ -43,7 +45,9 @@ const PostDetailPage = ({ post: { title, categories, body, authorImage, username
           </div>
         </div>
 
-        <div className="map-container">todo: map with marker</div>
+        <div className="map-container">
+          <MapBox coord={location} />
+        </div>
       </div>
     </article>
   );
