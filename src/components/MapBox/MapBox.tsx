@@ -5,22 +5,19 @@ import { ICoord } from "@/interfaces/index";
 
 interface IMapBox {
   coord: ICoord;
+  token: string;
 }
 
-const MapBox = ({ coord: { lat, lng } }: IMapBox) => {
-  const token = process.env.NEXT_PUBLIC_MAP_API;
-
-  if (!token) return <span>ошибка! не передан токен!</span>;
-
+const MapBox = ({ coord: { lat, lng }, token }: IMapBox) => {
   mapboxgl.accessToken = token;
 
-  const mapContainer = useRef(null);
-  const map = useRef(null);
+  const mapContainer = useRef<any>(null);
+  const map = useRef<mapboxgl.Map | null>(null);
 
   useEffect(() => {
     if (map.current) return;
 
-    if (lat && lng) {
+    if (lat && lng && mapContainer) {
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
         style: "mapbox://styles/mapbox/outdoors-v12",

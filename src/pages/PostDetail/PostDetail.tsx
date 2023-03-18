@@ -17,10 +17,12 @@ const PostComponents = {
   },
 };
 
-const PostDetailPage = ({
-  post: { title, categories, body, authorImage, username, about, location },
-}: IPostDetailPage) => {
-  if (!title) return null;
+const PostDetailPage = ({ post }: IPostDetailPage) => {
+  if (!post?.title) return null;
+
+  const { title, categories, body, authorImage, username, about, location } = post;
+
+  const token = process.env.NEXT_PUBLIC_MAP_API;
 
   return (
     <article className="post-container">
@@ -46,7 +48,7 @@ const PostDetailPage = ({
         </div>
 
         <div className="map-container">
-          <MapBox coord={location} />
+          {token ? <MapBox coord={location} token={token} /> : <span>ошибка! не получили MapBox-токен!</span>}
         </div>
       </div>
     </article>
