@@ -9,7 +9,7 @@ interface IPostsList {
 }
 
 const PostsList = ({ posts }: IPostsList) => {
-  console.log("posts", posts);
+  console.log("PostsList, posts", posts);
 
   return (
     <>

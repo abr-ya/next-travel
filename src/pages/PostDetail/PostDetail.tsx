@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Htag, MapBox, TagsBlock } from "@/components/index";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "../../../config/sanity";
@@ -20,7 +21,7 @@ const PostComponents = {
 const PostDetailPage = ({ post }: IPostDetailPage) => {
   if (!post?.title) return null;
 
-  const { title, categories, body, authorImage, username, about, location } = post;
+  const { title, categories, body, authorImage, mainImage, username, about, location } = post;
 
   const token = process.env.NEXT_PUBLIC_MAP_API;
 
@@ -30,13 +31,23 @@ const PostDetailPage = ({ post }: IPostDetailPage) => {
       <hr />
 
       <TagsBlock tags={categories} />
+      <div style={{ width: "100%", height: "66vw", position: "relative" }}>
+        <Image src={urlFor(mainImage).url()} alt={username + " avatar"} layout="fill" objectFit="contain" />
+      </div>
       <PortableText value={body} components={PostComponents} />
       <hr />
 
       <div className="info-container">
         <div className="author-container">
           <div>
-            <img className="avatar" src={urlFor(authorImage).url()} alt={username + " avatar"} />
+            <Image
+              className="avatar"
+              src={urlFor(authorImage).url()}
+              alt={username + " avatar"}
+              width="60"
+              height="60"
+              objectFit="cover"
+            />
           </div>
           <div>
             <Htag tag="h3">

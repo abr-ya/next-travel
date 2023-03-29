@@ -5,7 +5,7 @@ import { CardProps } from "./Card.props";
 import styles from "./Card.module.css";
 
 export const Card = forwardRef(({ post, ...props }: CardProps, ref: ForwardedRef<HTMLDivElement>) => {
-  const { title, publishedAt, mainImage, username, authorImage, categories } = post;
+  const { title, publishedAt, mainImage, username, authorImage, categories, visited } = post;
 
   const mainPicUrl = urlFor(mainImage).url();
   const avaUrl = urlFor(authorImage).url();
@@ -13,7 +13,8 @@ export const Card = forwardRef(({ post, ...props }: CardProps, ref: ForwardedRef
   return (
     <div className={styles.card} {...props} ref={ref}>
       <Htag tag={"h2"}>{title}</Htag>
-      <P size="s">Published on: {new Date(publishedAt).toDateString()}</P>
+      <P size="s">visited: {new Date(visited).toDateString()}</P>
+      <P size="s">published: {new Date(publishedAt).toDateString()}</P>
 
       <img className="main-image" alt={title + " image"} src={mainPicUrl} />
 
